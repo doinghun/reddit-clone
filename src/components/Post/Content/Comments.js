@@ -29,9 +29,9 @@ const Wrapper = styled.div`
 
 const PostContentComments = (props) => (
   <Wrapper>
-    <a href={`/${props.number_of_comments}`}>
+    <a href={`/${props.num_comments}`}>
       <ModeComment className="comment" />
-      <span>{props.number_of_comments}</span>
+      <span>{props.num_comments}</span>
     </a>
   </Wrapper>
 );

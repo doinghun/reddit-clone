@@ -7,7 +7,7 @@ const PostContent = (props) => (
   <PostContentContainer>
     <PostContentDetail {...props} />
     <div>{props.title}</div>
-    <div>{props.text}</div>
+    <div>{props.selftext}</div>
     <PostContentComments {...props} />
   </PostContentContainer>
 );

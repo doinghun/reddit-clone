@@ -27,7 +27,7 @@ const PostContentDetail = (props) => (
   <Wrapper>
     <span>Posted by</span>
     <a href={`/${props.author}`}>{props.author}</a>
-    <span>{dayjs(props.created).fromNow()}</span>
+    <span>{dayjs(props.created * 1000).fromNow()}</span>
   </Wrapper>
 );
 
