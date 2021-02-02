@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import {
-  Wrapper,
-  PostContentContainer,
-  PostVoteContainer,
-} from './styledComponents';
+import { Wrapper, PostVoteContainer } from './styledComponents';
+import PostContent from './Content/index';
 import { KeyboardArrowUp, KeyboardArrowDown } from '@material-ui/icons';
 
 const PostVoteButton = styled.button`
@@ -17,21 +14,18 @@ const PostVoteButton = styled.button`
   pointer-events: none;
 `;
 
-const Post = (prop) => (
+const Post = (props) => (
   <Wrapper>
     <PostVoteContainer>
       <PostVoteButton>
         <KeyboardArrowUp />
       </PostVoteButton>
-      <span>{prop.score}</span>
+      <span>{props.score}</span>
       <PostVoteButton>
         <KeyboardArrowDown />
       </PostVoteButton>
     </PostVoteContainer>
-    <PostContentContainer>
-      <div>{prop.title}</div>
-      <div>{prop.author}</div>
-    </PostContentContainer>
+    <PostContent {...props} />
   </Wrapper>
 );
 

@@ -9,6 +9,9 @@ const mockPost = [
     author: 'deepfkingvalue',
     text: 'test',
     score: 1,
+    id: 1,
+    created: Date.now(),
+    number_of_comments: 100,
   },
   {
     title: 'post2',
@@ -16,6 +19,9 @@ const mockPost = [
     author: 'dohun',
     text: 'test',
     score: 2,
+    id: 2,
+    created: Date.now(),
+    number_of_comments: 40,
   },
   {
     title: 'post3',
@@ -23,6 +29,9 @@ const mockPost = [
     author: 'kim',
     text: 'test',
     score: 3,
+    id: 3,
+    created: Date.now(),
+    number_of_comments: 30,
   },
 ];
 const PostList = () => (

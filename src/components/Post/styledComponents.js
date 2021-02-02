@@ -5,15 +5,6 @@ export const Wrapper = styled.div`
   height: auto;
 `;
 
-export const PostContentContainer = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  border-left: 1px solid;
-  padding: 8px;
-  min-width: 0;
-`;
-
 export const PostVoteContainer = styled.div`
   display: flex;
   flex-direction: column;
