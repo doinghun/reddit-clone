@@ -1,6 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Container, HomeMainSection } from './styledComponents';
 
-const Home = () => <div>Home</div>;
+const Home = () => (
+  <Container>
+    <HomeMainSection>
+      <div> Home </div>
+    </HomeMainSection>
+  </Container>
+);
 
 export default Home;
