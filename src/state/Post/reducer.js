@@ -6,7 +6,7 @@ import {
 
 const initialState = { isLoading: false, posts: [] };
 
-export default (state = initialState, action) => {
+export const posts = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_POSTS_REQUEST:
       return { ...state, isLoading: true };
