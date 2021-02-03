@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Post from 'components/Post';
+import LoadingSpinner from 'components/Spinner';
 import { List, Item } from './styledComponents';
 import { connect } from 'react-redux';
 import { fetchPosts } from 'state/Post/action';
@@ -14,8 +15,9 @@ function PostList({ fetchPosts, posts, isLoading }) {
     setPosts(posts);
   }, [posts]);
 
-  console.log(posts);
-  return (
+  return isLoading ? (
+    <LoadingSpinner />
+  ) : (
     <List>
       {_posts.map((post, index) => (
         <Item key={index}>
