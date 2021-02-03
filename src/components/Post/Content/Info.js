@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const PostContentDetail = (props) => (
+const PostContentInfo = (props) => (
   <Wrapper>
     <span>Posted by</span>
     <a href={`/${props.author}`}>{props.author}</a>
@@ -31,4 +31,4 @@ const PostContentDetail = (props) => (
   </Wrapper>
 );
 
-export default PostContentDetail;
+export default PostContentInfo;

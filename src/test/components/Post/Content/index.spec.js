@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import PC from 'components/Post/Content';
-import PostContentDetail from 'components/Post/Content/Details';
+import PostContentDetail from 'components/Post/Content/Detail';
 import PostContentComments from 'components/Post/Content/Comments';
 
 describe('PostContent', () => {

@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 import { Wrapper, PostVoteContainer } from './styledComponents';
 import PostContent from './Content/index';
 import { KeyboardArrowUp, KeyboardArrowDown } from '@material-ui/icons';
+import { kFormatter } from 'util/number';
 
 const PostVoteButton = styled.button`
   border: 0;
@@ -20,7 +21,7 @@ const Post = (props) => (
       <PostVoteButton>
         <KeyboardArrowUp />
       </PostVoteButton>
-      <span>{props.score}</span>
+      <span>{kFormatter(props.score)}</span>
       <PostVoteButton>
         <KeyboardArrowDown />
       </PostVoteButton>
