@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Post from 'components/Post';
 import LoadingSpinner from 'components/Spinner';
+import ViewOptions from 'components/ViewOptions';
 import { List, Item } from './styledComponents';
 import { connect } from 'react-redux';
 import { fetchPosts, fetchMorePosts } from 'state/Post/action';
@@ -15,14 +16,18 @@ function PostList({
   const [postList, setPostList] = useState([]);
   const [lastPostID, setLastPostID] = useState('');
 
-  // load Data Fetch
+  // Load Initial Data
   useEffect(() => {
-    fetchPosts('wallstreetbets');
+    const state = {
+      category: 'wallstreetbets',
+    };
+    fetchPosts(state);
   }, [fetchPosts]);
-  // set Posts & last Post Id to call for more
+  // Set Posts
   useEffect(() => {
     setPostList(posts);
   }, [posts]);
+  // Set lastPostId to call for more
   useEffect(() => {
     if (posts.length) {
       setLastPostID(posts[posts.length - 1].name);
@@ -45,7 +50,7 @@ function PostList({
     new IntersectionObserver(handleObserver, { threshold: 1 })
   );
 
-  // Detect scroll End
+  // Detect Scroll To End
   useEffect(() => {
     const currentElement = element;
     const currentObserver = observer.current;
@@ -61,7 +66,7 @@ function PostList({
     };
   }, [element, isLoading]);
 
-  // load More Posts
+  // Load More Posts
   useEffect(() => {
     lastPostID && fetchMorePosts('wallstreetbets', lastPostID);
   }, [fetchMorePosts, page]);
@@ -70,6 +75,7 @@ function PostList({
     <LoadingSpinner />
   ) : (
     <div>
+      <ViewOptions />
       <List>
         {postList.map((post, index) => (
           <Item key={index}>

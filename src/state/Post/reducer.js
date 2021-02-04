@@ -11,6 +11,7 @@ const initialState = {
   isInitialLoading: false,
   isLoading: false,
   posts: [],
+  view: 'card',
 };
 
 export const posts = (state = initialState, action) => {

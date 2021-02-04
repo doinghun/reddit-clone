@@ -8,10 +8,10 @@ const fetchPostsRequest = { type: FETCH_POSTS_REQUEST };
 const fetchPostsSuccess = (posts) => ({ type: FETCH_POSTS_SUCCESS, posts });
 const fetchPostsError = (error) => ({ type: FETCH_POSTS_ERROR, error });
 
-export const fetchPosts = (category) => async (dispatch) => {
+export const fetchPosts = (state) => async (dispatch) => {
   dispatch(fetchPostsRequest);
   try {
-    const posts = await getPosts(category);
+    const posts = await getPosts(state);
     dispatch(fetchPostsSuccess(posts));
   } catch (error) {
     dispatch(fetchPostsError(error));
