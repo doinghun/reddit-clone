@@ -21,7 +21,7 @@ const Post = (props) => (
       <PostVoteButton>
         <MdKeyboardArrowUp />
       </PostVoteButton>
-      <span>{kFormatter(props.post.score)}</span>
+      <span>{kFormatter(props.score)}</span>
       <PostVoteButton>
         <MdKeyboardArrowDown />
       </PostVoteButton>

@@ -1,34 +1,16 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import { InfoWrapper } from './styledComponent';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-const Wrapper = styled.div`
-  font-size: 13px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  & > * {
-    margin-right: 4px;
-  }
-  & > a {
-    text-underline-position: under;
-    text-decoration: none;
-    color: black;
-  }
-  & > span {
-    color: ${(props) => props.theme.mutedText};
-  }
-`;
-
 const PostContentInfo = (props) => (
-  <Wrapper>
+  <InfoWrapper>
     <span>Posted by</span>
     <a href={`/${props.author}`}>{props.author}</a>
     <span>{dayjs(props.created * 1000).fromNow()}</span>
-  </Wrapper>
+  </InfoWrapper>
 );
 
 export default PostContentInfo;

@@ -9,7 +9,7 @@ export const PostVoteContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30px;
+  min-width: 35px;
   padding: 4px;
   font-size: 12px;
   line-height: 25px;
