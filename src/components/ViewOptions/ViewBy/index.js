@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Wrapper, SelectWrapper, Dropdown } from './styledComponents';
 import { viewBy } from 'state/Post/action';
 
-function Views({ viewBy }) {
+function ViewBy({ viewBy }) {
   const types = ['Card', 'Classic', 'Compact'];
   const [viewType, setViewType] = useState('');
   useEffect(() => {
@@ -29,4 +29,4 @@ function Views({ viewBy }) {
     </Wrapper>
   );
 }
-export default connect(null, { viewBy })(Views);
+export default connect(null, { viewBy })(ViewBy);
