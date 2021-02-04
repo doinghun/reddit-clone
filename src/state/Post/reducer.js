@@ -5,6 +5,9 @@ import {
   FETCH_MORE_POSTS_REQUEST,
   FETCH_MORE_POSTS_SUCCESS,
   FETCH_MORE_POSTS_ERROR,
+  VIEW_BY_CARD,
+  VIEW_BY_CLASSIC,
+  VIEW_BY_COMPACT,
 } from './action';
 
 const initialState = {
@@ -36,6 +39,12 @@ export const posts = (state = initialState, action) => {
       };
     case FETCH_MORE_POSTS_ERROR:
       return { ...state, isLoading: false };
+    case VIEW_BY_CARD:
+      return { ...state, view: 'card' };
+    case VIEW_BY_CLASSIC:
+      return { ...state, view: 'classic' };
+    case VIEW_BY_COMPACT:
+      return { ...state, view: 'compact' };
     default:
       return state;
   }

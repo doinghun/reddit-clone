@@ -41,3 +41,23 @@ export const fetchMorePosts = (category, lastPostID) => async (dispatch) => {
     dispatch(fetchMorePostsError(error));
   }
 };
+
+export const VIEW_BY_CARD = 'VIEW_BY_CARD';
+export const VIEW_BY_CLASSIC = 'VIEW_BY_CLASSIC';
+export const VIEW_BY_COMPACT = 'VIEW_BY_COMPACT';
+
+export const viewBy = (type) => (dispatch) => {
+  switch (type) {
+    case 'Card':
+      dispatch({ type: VIEW_BY_CARD });
+      break;
+    case 'Classic':
+      dispatch({ type: VIEW_BY_CLASSIC });
+      break;
+    case 'Compact':
+      dispatch({ type: VIEW_BY_COMPACT });
+      break;
+    default:
+      return type;
+  }
+};
