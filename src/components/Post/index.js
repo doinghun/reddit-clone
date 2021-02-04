@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Wrapper, PostVoteContainer } from './styledComponents';
 import PostContent from './Content/index';
-import { KeyboardArrowUp, KeyboardArrowDown } from '@material-ui/icons';
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 import { kFormatter } from 'util/number';
 
 const PostVoteButton = styled.button`
@@ -19,11 +19,11 @@ const Post = (props) => (
   <Wrapper>
     <PostVoteContainer>
       <PostVoteButton>
-        <KeyboardArrowUp />
+        <MdKeyboardArrowUp />
       </PostVoteButton>
-      <span>{kFormatter(props.score)}</span>
+      <span>{kFormatter(props.post.score)}</span>
       <PostVoteButton>
-        <KeyboardArrowDown />
+        <MdKeyboardArrowDown />
       </PostVoteButton>
     </PostVoteContainer>
     <PostContent {...props} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { ModeComment } from '@material-ui/icons';
+import { MdComment } from 'react-icons/md';
 
 const Wrapper = styled.div`
   font-size: 13px;
@@ -15,10 +15,6 @@ const Wrapper = styled.div`
     text-decoration: none;
     color: black;
   }
-  & > span {
-    color: ${(props) => props.theme.mutedText};
-  }
-
   .comment {
     display: inlie-block;
     height: 13px;
@@ -29,8 +25,8 @@ const Wrapper = styled.div`
 
 const PostContentComments = (props) => (
   <Wrapper>
-    <a href={`/${props.num_comments}`}>
-      <ModeComment className="comment" />
+    <a href={`/`}>
+      <MdComment className="comment" />
       <span>{props.num_comments}</span>
     </a>
   </Wrapper>
