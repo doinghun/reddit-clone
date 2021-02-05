@@ -8,7 +8,15 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   margin-bottom: 16px;
   padding: 0 12px;
-  border: 1px solid;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background: white;
+
+  @media (max-width: 768px) {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
 `;
