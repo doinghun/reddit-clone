@@ -1,5 +1,11 @@
+const global = {
+  upvote: '#f54504',
+  downvote: '#7193ff',
+};
+
 const card = {
-  display: 'inherent',
+  ...global,
+  display: 'grid',
   gridTemplateColumns: 'auto',
   gridTemplateRows: 'auto auto auto auto',
   voteFlexDirection: 'column',
@@ -8,6 +14,7 @@ const card = {
 };
 
 const classic = {
+  ...global,
   display: 'none',
   gridTemplateColumns: 'auto',
   gridTemplateRows: 'auto auto auto',
@@ -17,8 +24,9 @@ const classic = {
 };
 
 const compact = {
+  ...global,
   display: 'none',
-  gridTemplateColumns: '93% 7%',
+  gridTemplateColumns: '85% 15%',
   gridTemplateRows: 'auto auto',
   voteFlexDirection: 'row',
   voteMinWidth: '70px',
