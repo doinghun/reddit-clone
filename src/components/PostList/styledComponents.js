@@ -2,18 +2,21 @@ import styled from 'styled-components/macro';
 
 export const List = styled.ul`
   list-style: none;
-  border: 1px solid;
-  border-radius: 2px;
-  @media (max-width: 768px) {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-  }
 `;
 
 export const Item = styled.li`
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
   :not(:first-child) {
-    border-top: 1px solid;
+    border-top: 1px solid #ccc;
   }
+
+  @media (max-width: 768px) {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  background: white;
 `;

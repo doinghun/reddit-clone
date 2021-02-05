@@ -69,6 +69,7 @@ function PostList({
   // Load More Posts
   useEffect(() => {
     lastPostID && fetchMorePosts('wallstreetbets', lastPostID);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchMorePosts, page]);
 
   return isInitialLoading ? (
