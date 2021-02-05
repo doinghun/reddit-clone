@@ -45,7 +45,6 @@ export const DetailWrapper = styled.div`
 `;
 
 export const CommentWrapper = styled.div`
-  margin-left: ${(props) => props.theme.marginLeft};
   font-size: 13px;
   overflow: hidden;
   text-overflow: ellipsis;
