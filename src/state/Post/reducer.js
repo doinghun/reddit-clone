@@ -8,7 +8,10 @@ import {
   VIEW_BY_CARD,
   VIEW_BY_CLASSIC,
   VIEW_BY_COMPACT,
+  INCREASE_SCORE,
+  DECREASE_SCORE,
 } from './action';
+import { compare } from 'util/sort';
 
 const initialState = {
   isInitialLoading: false,
@@ -45,6 +48,28 @@ export const posts = (state = initialState, action) => {
       return { ...state, view: 'classic' };
     case VIEW_BY_COMPACT:
       return { ...state, view: 'compact' };
+    case INCREASE_SCORE:
+      return {
+        ...state,
+        posts: state.posts
+          .map((post) => {
+            return post.id === action.id
+              ? { ...post, local_score: post.local_score + 1 }
+              : post;
+          })
+          .sort(compare),
+      };
+    case DECREASE_SCORE:
+      return {
+        ...state,
+        posts: state.posts
+          .map((post) => {
+            return post.id === action.id
+              ? { ...post, local_score: post.local_score - 1 }
+              : post;
+          })
+          .sort(compare),
+      };
     default:
       return state;
   }

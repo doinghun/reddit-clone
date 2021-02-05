@@ -6,7 +6,17 @@ const extractDataHelper = (arr) => {
   return arr.map(
     ({
       data: { title, author, num_comments, selftext, id, score, created, name },
-    }) => ({ title, author, num_comments, selftext, id, score, created, name })
+    }) => ({
+      title,
+      author,
+      num_comments,
+      selftext,
+      id,
+      score,
+      created,
+      name,
+      local_score: 0,
+    })
   );
 };
 

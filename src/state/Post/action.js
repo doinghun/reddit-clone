@@ -61,3 +61,14 @@ export const viewBy = (type) => (dispatch) => {
       return type;
   }
 };
+
+export const INCREASE_SCORE = 'INCREASE_SCORE';
+export const DECREASE_SCORE = 'DECREASE_SCORE';
+export const increaseScore = (id) => ({
+  type: INCREASE_SCORE,
+  id,
+});
+export const decreaseScore = (id) => ({
+  type: DECREASE_SCORE,
+  id,
+});
