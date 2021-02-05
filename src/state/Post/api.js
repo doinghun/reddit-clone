@@ -5,7 +5,17 @@ const limit = 25;
 const extractDataHelper = (arr) => {
   return arr.map(
     ({
-      data: { title, author, num_comments, selftext, id, score, created, name },
+      data: {
+        title,
+        author,
+        num_comments,
+        selftext,
+        id,
+        score,
+        created,
+        name,
+        preview,
+      },
     }) => ({
       title,
       author,
@@ -15,7 +25,10 @@ const extractDataHelper = (arr) => {
       score,
       created,
       name,
+      preview,
       local_score: 0,
+      upVoted: false,
+      downVoted: false,
     })
   );
 };

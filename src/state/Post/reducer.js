@@ -54,7 +54,12 @@ export const posts = (state = initialState, action) => {
         posts: state.posts
           .map((post) => {
             return post.id === action.id
-              ? { ...post, local_score: post.local_score + 1 }
+              ? {
+                  ...post,
+                  local_score: post.local_score + 1,
+                  upVoted: true,
+                  downVoted: false,
+                }
               : post;
           })
           .sort(compare),
@@ -65,7 +70,12 @@ export const posts = (state = initialState, action) => {
         posts: state.posts
           .map((post) => {
             return post.id === action.id
-              ? { ...post, local_score: post.local_score - 1 }
+              ? {
+                  ...post,
+                  local_score: post.local_score - 1,
+                  downVoted: true,
+                  upVoted: false,
+                }
               : post;
           })
           .sort(compare),
