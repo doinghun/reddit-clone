@@ -2,8 +2,8 @@ import axios from 'util/axios';
 
 const limit = 25;
 
-const extractDataHelper = (arr) => {
-  return arr.map(
+const extractDataHelper = (dataObj) => {
+  const data = dataObj.children.map(
     ({
       data: {
         title,
@@ -31,19 +31,21 @@ const extractDataHelper = (arr) => {
       downVoted: false,
     })
   );
+  return {
+    after: dataObj.after,
+    data: data,
+  };
 };
 
 export function getPosts(state) {
-  console.log(state);
   const queryParam = state.sortBy
     ? 'r/' + state.category + '/' + state.sortBy + '.json?limit=' + limit
     : 'r/' + state.category + '.json?limit=' + limit;
-  console.log(queryParam);
   return axios
     .get(queryParam)
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
-        return extractDataHelper(res.data.data.children);
+        return extractDataHelper(res.data.data);
       }
     })
     .catch((error) => {
@@ -56,7 +58,7 @@ export function getMorePosts(category, lastPostID) {
     .get('r/' + category + '.json?limit=' + limit + '&after=' + lastPostID)
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
-        return extractDataHelper(res.data.data.children);
+        return extractDataHelper(res.data.data);
       }
     })
     .catch((error) => {

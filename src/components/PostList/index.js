@@ -14,7 +14,6 @@ function PostList({
   isLoading,
 }) {
   const [postList, setPostList] = useState([]);
-  const [lastPostID, setLastPostID] = useState('');
 
   // Load Initial Data
   useEffect(() => {
@@ -27,15 +26,9 @@ function PostList({
   useEffect(() => {
     setPostList(posts);
   }, [posts]);
-  // Set lastPostId to call for more
-  useEffect(() => {
-    if (posts.length) {
-      setLastPostID(posts[posts.length - 1].name);
-    }
-  }, [posts]);
 
   const [element, setElement] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   const handleObserver = useCallback(
     (entries) => {
@@ -68,9 +61,8 @@ function PostList({
 
   // Load More Posts
   useEffect(() => {
-    lastPostID && fetchMorePosts('wallstreetbets', lastPostID);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchMorePosts, page]);
+    page && fetchMorePosts('wallstreetbets');
+  }, [page, fetchMorePosts]);
 
   return isInitialLoading ? (
     <LoadingSpinner />

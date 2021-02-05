@@ -17,6 +17,7 @@ const initialState = {
   isInitialLoading: false,
   isLoading: false,
   posts: [],
+  lastPostID: '',
   view: 'card',
 };
 
@@ -25,10 +26,13 @@ export const posts = (state = initialState, action) => {
     case FETCH_POSTS_REQUEST:
       return { ...state, isInitialLoading: true };
     case FETCH_POSTS_SUCCESS:
+      // const posts = { after: '', data: [] }
+
       return {
         ...state,
         isInitialLoading: false,
-        posts: action.posts,
+        posts: action.posts.data,
+        lastPostID: action.posts.after,
       };
     case FETCH_POSTS_ERROR:
       return { ...state, isInitialLoading: false };
@@ -38,7 +42,8 @@ export const posts = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        posts: state.posts.concat(action.posts),
+        posts: state.posts.concat(action.posts.data),
+        lastPostID: action.posts.after,
       };
     case FETCH_MORE_POSTS_ERROR:
       return { ...state, isLoading: false };
