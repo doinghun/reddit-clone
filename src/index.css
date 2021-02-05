@@ -7,11 +7,14 @@
 
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   min-height: 100%;
+  overflow-x: hidden;
   padding-bottom: 48px;
   font-family: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
+  background:#DAE0E6;
 }
