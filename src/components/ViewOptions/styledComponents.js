@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  background: white;
+  background: #ffffff;
 
   @media (max-width: 768px) {
     border-top: none;

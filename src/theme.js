@@ -1,6 +1,7 @@
 const global = {
   upvote: '#f54504',
   downvote: '#7193ff',
+  reddit: '#ff5700',
 };
 
 const card = {
