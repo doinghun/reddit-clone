@@ -6,6 +6,7 @@ import ViewOptions from 'components/ViewOptions';
 import { List, Item } from './styledComponents';
 import { connect } from 'react-redux';
 import { fetchPosts, fetchMorePosts } from 'state/Post/action';
+import { subreddit_name } from 'util/constant';
 function PostList({
   fetchPosts,
   fetchMorePosts,
@@ -17,10 +18,7 @@ function PostList({
 
   // Load Initial Data
   useEffect(() => {
-    const state = {
-      category: 'wallstreetbets',
-    };
-    fetchPosts(state);
+    fetchPosts({ subreddit: subreddit_name });
   }, [fetchPosts]);
   // Set Posts
   useEffect(() => {
@@ -61,7 +59,9 @@ function PostList({
 
   // Load More Posts
   useEffect(() => {
-    page && fetchMorePosts('wallstreetbets');
+    if (page > 1) {
+      fetchMorePosts(subreddit_name);
+    }
   }, [page, fetchMorePosts]);
 
   return isInitialLoading ? (

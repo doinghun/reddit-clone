@@ -46,7 +46,7 @@ describe('PostList', () => {
       },
     };
   });
-  it('should render all posts with vote and content sections if loading', () => {
+  it('should render all posts with vote and content sections', () => {
     const store = mockStore(() => initialState);
     const wrapper = mount(
       <Provider store={store}>

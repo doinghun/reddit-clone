@@ -37,10 +37,11 @@ const extractDataHelper = (dataObj) => {
   };
 };
 
-export function getPosts(state) {
-  const queryParam = state.sortBy
-    ? 'r/' + state.category + '/' + state.sortBy + '.json?limit=' + limit
-    : 'r/' + state.category + '.json?limit=' + limit;
+export function getPosts(param) {
+  const { subreddit, sortBy } = param;
+  const queryParam = sortBy
+    ? 'r/' + subreddit + '/' + sortBy + '.json?limit=' + limit
+    : 'r/' + subreddit + '.json?limit=' + limit;
   return axios
     .get(queryParam)
     .then((res) => {
@@ -53,9 +54,10 @@ export function getPosts(state) {
     });
 }
 
-export function getMorePosts(category, lastPostID) {
+export function getMorePosts(param) {
+  const { subreddit, lastPostID } = param;
   return axios
-    .get('r/' + category + '.json?limit=' + limit + '&after=' + lastPostID)
+    .get('r/' + subreddit + '.json?limit=' + limit + '&after=' + lastPostID)
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
         return extractDataHelper(res.data.data);

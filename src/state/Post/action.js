@@ -8,10 +8,10 @@ const fetchPostsRequest = { type: FETCH_POSTS_REQUEST };
 const fetchPostsSuccess = (posts) => ({ type: FETCH_POSTS_SUCCESS, posts });
 const fetchPostsError = (error) => ({ type: FETCH_POSTS_ERROR, error });
 
-export const fetchPosts = (state) => async (dispatch) => {
+export const fetchPosts = (param) => async (dispatch) => {
   dispatch(fetchPostsRequest);
   try {
-    const posts = await getPosts(state);
+    const posts = await getPosts(param);
     dispatch(fetchPostsSuccess(posts));
   } catch (error) {
     dispatch(fetchPostsError(error));
@@ -32,11 +32,15 @@ const fetchMorePostsError = (error) => ({
   error,
 });
 
-export const fetchMorePosts = (category) => async (dispatch, getState) => {
+export const fetchMorePosts = (subreddit) => async (dispatch, getState) => {
   const lastPostID = getState().post.lastPostID;
+  const param = {
+    subreddit,
+    lastPostID,
+  };
   dispatch(fetchMorePostsRequest);
   try {
-    const posts = await getMorePosts(category, lastPostID);
+    const posts = await getMorePosts(param);
     dispatch(fetchMorePostsSuccess(posts));
   } catch (error) {
     dispatch(fetchMorePostsError(error));
