@@ -1,11 +1,11 @@
-const global = {
+const globalStyle = {
   upvote: '#f54504',
   downvote: '#7193ff',
   reddit: '#ff5700',
 };
 
 const card = {
-  ...global,
+  ...globalStyle,
   display: 'grid',
   gridTemplateColumns: 'auto',
   gridTemplateRows: 'auto auto auto auto',
@@ -15,7 +15,7 @@ const card = {
 };
 
 const classic = {
-  ...global,
+  ...globalStyle,
   display: 'none',
   gridTemplateColumns: 'auto',
   gridTemplateRows: 'auto auto auto',
@@ -25,7 +25,7 @@ const classic = {
 };
 
 const compact = {
-  ...global,
+  ...globalStyle,
   display: 'none',
   gridTemplateColumns: '85% 15%',
   gridTemplateRows: 'auto auto',
