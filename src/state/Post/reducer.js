@@ -27,7 +27,6 @@ export const post = (state = initialState, action) => {
       return { ...state, isInitialLoading: true };
     case FETCH_POSTS_SUCCESS:
       // const posts = { after: '', data: [] }
-
       return {
         ...state,
         isInitialLoading: false,

@@ -4,9 +4,12 @@ export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 export const FETCH_POSTS_ERROR = 'FETCH_POSTS_ERROR';
 
-const fetchPostsRequest = { type: FETCH_POSTS_REQUEST };
-const fetchPostsSuccess = (posts) => ({ type: FETCH_POSTS_SUCCESS, posts });
-const fetchPostsError = (error) => ({ type: FETCH_POSTS_ERROR, error });
+export const fetchPostsRequest = { type: FETCH_POSTS_REQUEST };
+export const fetchPostsSuccess = (posts) => ({
+  type: FETCH_POSTS_SUCCESS,
+  posts,
+});
+export const fetchPostsError = (error) => ({ type: FETCH_POSTS_ERROR, error });
 
 export const fetchPosts = (param) => async (dispatch) => {
   dispatch(fetchPostsRequest);
@@ -22,12 +25,12 @@ export const FETCH_MORE_POSTS_REQUEST = 'FETCH_MORE_POSTS_REQUEST';
 export const FETCH_MORE_POSTS_SUCCESS = 'FETCH_MORE_POSTS_SUCCESS';
 export const FETCH_MORE_POSTS_ERROR = 'FETCH_MORE_POSTS_ERROR';
 
-const fetchMorePostsRequest = { type: FETCH_MORE_POSTS_REQUEST };
-const fetchMorePostsSuccess = (posts) => ({
+export const fetchMorePostsRequest = { type: FETCH_MORE_POSTS_REQUEST };
+export const fetchMorePostsSuccess = (posts) => ({
   type: FETCH_MORE_POSTS_SUCCESS,
   posts,
 });
-const fetchMorePostsError = (error) => ({
+export const fetchMorePostsError = (error) => ({
   type: FETCH_MORE_POSTS_ERROR,
   error,
 });
