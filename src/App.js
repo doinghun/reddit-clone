@@ -18,5 +18,5 @@ function App({ view }) {
   );
 }
 
-const mapStateToProps = (state) => ({ view: state.posts.view });
+const mapStateToProps = (state) => ({ view: state.post.view });
 export default connect(mapStateToProps)(App);

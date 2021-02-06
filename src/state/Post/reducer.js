@@ -21,7 +21,7 @@ const initialState = {
   view: 'card',
 };
 
-export const posts = (state = initialState, action) => {
+export const post = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_POSTS_REQUEST:
       return { ...state, isInitialLoading: true };
