@@ -20,3 +20,7 @@ export const HomeMainSection = styled.main`
   min-width: 0;
   max-width: 900px;
 `;
+
+export const SubRedditTitle = styled.h2`
+  text-align: center;
+`;
