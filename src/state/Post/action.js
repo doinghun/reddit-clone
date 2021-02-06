@@ -33,7 +33,7 @@ const fetchMorePostsError = (error) => ({
 });
 
 export const fetchMorePosts = (category) => async (dispatch, getState) => {
-  const lastPostID = getState().posts.lastPostID;
+  const lastPostID = getState().post.lastPostID;
   dispatch(fetchMorePostsRequest);
   try {
     const posts = await getMorePosts(category, lastPostID);

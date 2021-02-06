@@ -83,7 +83,7 @@ function PostList({
   );
 }
 
-PostList.prototype = {
+PostList.propTypes = {
   fetchPosts: PropTypes.func,
   fetchMorePosts: PropTypes.func,
   posts: PropTypes.array,
@@ -91,9 +91,9 @@ PostList.prototype = {
 };
 
 const mapStateToProps = (state) => ({
-  posts: state.posts.posts,
-  isInitialLoading: state.posts.isInitialLoading,
-  isLoading: state.posts.isLoading,
+  posts: state.post.posts,
+  isInitialLoading: state.post.isInitialLoading,
+  isLoading: state.post.isLoading,
 });
 
 export default connect(mapStateToProps, { fetchPosts, fetchMorePosts })(

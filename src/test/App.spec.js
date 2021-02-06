@@ -11,7 +11,7 @@ import App from '../App.js';
 describe('App', () => {
   it('Should render correctly', () => {
     const initialState = {
-      posts: {
+      post: {
         view: 'card',
         posts: [],
       },
