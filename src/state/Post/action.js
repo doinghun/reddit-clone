@@ -47,16 +47,20 @@ export const VIEW_BY_CARD = 'VIEW_BY_CARD';
 export const VIEW_BY_CLASSIC = 'VIEW_BY_CLASSIC';
 export const VIEW_BY_COMPACT = 'VIEW_BY_COMPACT';
 
+export const viewByCard = { type: VIEW_BY_CARD };
+export const viewByClassic = { type: VIEW_BY_CLASSIC };
+export const viewByCompact = { type: VIEW_BY_COMPACT };
+
 export const viewBy = (type) => (dispatch) => {
   switch (type) {
     case 'Card':
-      dispatch({ type: VIEW_BY_CARD });
+      dispatch(viewByCard);
       break;
     case 'Classic':
-      dispatch({ type: VIEW_BY_CLASSIC });
+      dispatch(viewByClassic);
       break;
     case 'Compact':
-      dispatch({ type: VIEW_BY_COMPACT });
+      dispatch(viewByCompact);
       break;
     default:
       return type;
