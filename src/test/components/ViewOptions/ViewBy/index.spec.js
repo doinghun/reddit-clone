@@ -44,19 +44,17 @@ describe('ViewBy', () => {
         <ViewBy />
       </Provider>
     );
-    wrapper.find('select').simulate('change', { target: { value: 'Card' } });
-    expect(wrapper.find('select').props().value).toBe('Card');
+    wrapper.find('select').simulate('change', { target: { value: 'card' } });
     expect(store.getActions()).toEqual([viewByCard]);
   });
-  it('Should dispatch viewByClassic action on Card option click', () => {
+  it('Should dispatch viewByClassic action on Classic option click', () => {
     const store = mockStore(initialState);
     const wrapper = mount(
       <Provider store={store}>
         <ViewBy />
       </Provider>
     );
-    wrapper.find('select').simulate('change', { target: { value: 'Classic' } });
-    expect(wrapper.find('select').props().value).toBe('Classic');
+    wrapper.find('select').simulate('change', { target: { value: 'classic' } });
     expect(store.getActions()).toEqual([viewByClassic]);
   });
   it('Should send viewByCompact action on Compact option click', () => {
@@ -66,8 +64,7 @@ describe('ViewBy', () => {
         <ViewBy />
       </Provider>
     );
-    wrapper.find('select').simulate('change', { target: { value: 'Compact' } });
-    expect(wrapper.find('select').props().value).toBe('Compact');
+    wrapper.find('select').simulate('change', { target: { value: 'compact' } });
     expect(store.getActions()).toEqual([viewByCompact]);
   });
 });
