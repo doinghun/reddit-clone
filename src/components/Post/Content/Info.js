@@ -5,11 +5,11 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-const PostContentInfo = (props) => (
+const PostContentInfo = ({ author, created }) => (
   <InfoWrapper>
     <span>Posted by</span>
-    <a href={`/${props.author}`}>{props.author}</a>
-    <span>{dayjs(props.created * 1000).fromNow()}</span>
+    <a href={`/${author}`}>{author}</a>
+    <span>{dayjs(created * 1000).fromNow()}</span>
   </InfoWrapper>
 );
 

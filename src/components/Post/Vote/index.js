@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   PostVoteContainer,
@@ -9,16 +10,14 @@ import {
 import { ImArrowUp, ImArrowDown } from 'react-icons/im';
 import { increaseScore, decreaseScore } from 'state/Post/action';
 
-const PostVote = (props) => {
-  const {
-    increaseScore,
-    decreaseScore,
-    id,
-    local_score,
-    upVoted,
-    downVoted,
-  } = props;
-
+const PostVote = ({
+  increaseScore,
+  decreaseScore,
+  id,
+  local_score,
+  upVoted,
+  downVoted,
+}) => {
   return (
     <PostVoteContainer>
       <PostUpVoteButton onClick={() => increaseScore(id)} upVoted={upVoted}>
@@ -27,11 +26,23 @@ const PostVote = (props) => {
       <PostVoteScore upVoted={upVoted} downVoted={downVoted}>
         {local_score}
       </PostVoteScore>
-      <PostDownVoteButton onClick={() => decreaseScore(id)} downVoted={downVoted}>
+      <PostDownVoteButton
+        onClick={() => decreaseScore(id)}
+        downVoted={downVoted}
+      >
         <ImArrowDown size={16} />
       </PostDownVoteButton>
     </PostVoteContainer>
   );
+};
+
+PostVote.prototype = {
+  increaseScore: PropTypes.func,
+  decreaseScore: PropTypes.func,
+  id: PropTypes.string,
+  local_score: PropTypes.number,
+  upVoted: PropTypes.bool,
+  downVoted: PropTypes.bool,
 };
 
 export default connect(null, { increaseScore, decreaseScore })(PostVote);

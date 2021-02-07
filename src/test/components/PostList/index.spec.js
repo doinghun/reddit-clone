@@ -30,7 +30,19 @@ describe('PostList', () => {
         score: 1,
         created: 1612587616,
         name: 'name',
-        preview: 'preview',
+        preview: {
+          enabled: true,
+          images: [
+            {
+              id: '12345',
+              source: {
+                height: 1151,
+                width: 1170,
+                url: 'https://preview.url',
+              },
+            },
+          ],
+        },
         local_score: 0,
         upVoted: false,
         downVoted: false,

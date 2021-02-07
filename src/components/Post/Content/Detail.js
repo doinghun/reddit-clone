@@ -1,19 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DetailWrapper, DetailImageWrapper } from './styledComponent';
 
 const decoded = (encoded) => encoded.replace(/&amp;/g, '&');
-const PostContentDetail = (props) =>
-  props.preview && props.preview.enabled ? (
+const PostContentDetail = ({ title, detail, preview }) =>
+  preview && preview.enabled ? (
     <DetailImageWrapper>
       <img
-        src={decoded(props.preview.images[0].source.url)}
-        height={props.preview.images[0].source.height}
-        width={props.preview.images[0].source.width}
-        alt={props.title}
+        src={decoded(preview.images[0].source.url)}
+        height={preview.images[0].source.height}
+        width={preview.images[0].source.width}
+        alt={title}
       />
     </DetailImageWrapper>
   ) : (
-    <DetailWrapper>{props.selftext}</DetailWrapper>
+    <DetailWrapper>{detail}</DetailWrapper>
   );
+
+PostContentDetail.propTypes = {
+  title: PropTypes.string,
+  detail: PropTypes.string,
+  preview: PropTypes.shape({
+    enabled: PropTypes.bool,
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        source: PropTypes.shape({
+          height: PropTypes.number,
+          width: PropTypes.number,
+          url: PropTypes.string,
+        }),
+      })
+    ),
+  }),
+};
 
 export default PostContentDetail;

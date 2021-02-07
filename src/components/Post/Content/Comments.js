@@ -4,12 +4,12 @@ import { MdComment } from 'react-icons/md';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { kFormatter } from 'util/number';
 
-const PostContentComments = (props) => (
+const PostContentComments = ({ score, num_comments }) => (
   <CommentWrapper>
     <TiArrowSortedUp size={16} className="comment" />
-    <span>{kFormatter(props.score)}</span>
+    <span>{kFormatter(score)}</span>
     <MdComment className="comment" />
-    <span>{kFormatter(props.num_comments)}</span>
+    <span>{kFormatter(num_comments)}</span>
   </CommentWrapper>
 );
 

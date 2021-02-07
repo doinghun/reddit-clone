@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Wrapper, SelectWrapper, Dropdown } from './styledComponents';
 import { viewBy } from 'state/Post/action';
@@ -29,4 +30,9 @@ function ViewBy({ viewBy }) {
     </Wrapper>
   );
 }
+
+ViewBy.prototype = {
+  viewBy: PropTypes.func,
+};
+
 export default connect(null, { viewBy })(ViewBy);

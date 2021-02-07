@@ -86,8 +86,24 @@ function PostList({
 PostList.propTypes = {
   fetchPosts: PropTypes.func,
   fetchMorePosts: PropTypes.func,
-  posts: PropTypes.array,
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
+      num_comments: PropTypes.number,
+      selftext: PropTypes.string,
+      score: PropTypes.number,
+      created: PropTypes.number,
+      name: PropTypes.string,
+      preview: PropTypes.object,
+      local_score: PropTypes.number,
+      upVoted: PropTypes.bool,
+      downVoted: PropTypes.bool,
+    })
+  ),
   isLoading: PropTypes.bool,
+  isInitialLoading: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({

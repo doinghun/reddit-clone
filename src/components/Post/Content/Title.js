@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TitleWrapper } from './styledComponent';
 
-const PostContentTitle = (props) => (
+const PostContentTitle = ({ title }) => (
   <TitleWrapper>
-    <h3>{props.title}</h3>
+    <h3>{title}</h3>
   </TitleWrapper>
 );
 
+PostContentTitle.propTypes = {
+  title: PropTypes.string,
+};
 export default PostContentTitle;
