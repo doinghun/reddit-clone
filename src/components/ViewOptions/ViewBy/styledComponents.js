@@ -35,6 +35,7 @@ export const Dropdown = styled.select`
   font-size: 13px;
   font-weight: 700;
   background: white;
+  text-transform: capitalize;
 
   :hover,
   :active {

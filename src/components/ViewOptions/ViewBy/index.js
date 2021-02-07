@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Wrapper, SelectWrapper, Dropdown } from './styledComponents';
 import { viewBy } from 'state/Post/action';
 
-function ViewBy({ viewBy }) {
-  const types = ['Card', 'Classic', 'Compact'];
-  const [viewType, setViewType] = useState('');
-  useEffect(() => {
-    viewBy(viewType);
-  }, [viewBy, viewType]);
-  const handleChange = (e) => {
-    setViewType(e.target.value);
-  };
+function ViewBy({ view, viewBy }) {
+  const types = ['card', 'classic', 'compact'];
+
   const renderViewTypes = () =>
     types.map((type, index) => (
       <option key={index} value={type}>
@@ -23,7 +17,7 @@ function ViewBy({ viewBy }) {
   return (
     <Wrapper>
       <SelectWrapper>
-        <Dropdown value={viewType} onChange={(e) => handleChange(e)}>
+        <Dropdown value={view} onChange={(e) => viewBy(e.target.value)}>
           {renderViewTypes()}
         </Dropdown>
       </SelectWrapper>
@@ -32,7 +26,12 @@ function ViewBy({ viewBy }) {
 }
 
 ViewBy.prototype = {
+  view: PropTypes.string,
   viewBy: PropTypes.func,
 };
 
-export default connect(null, { viewBy })(ViewBy);
+const mapStateToProps = (state) => ({
+  view: state.post.view,
+});
+
+export default connect(mapStateToProps, { viewBy })(ViewBy);

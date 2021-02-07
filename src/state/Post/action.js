@@ -60,13 +60,13 @@ export const viewByCompact = { type: VIEW_BY_COMPACT };
 
 export const viewBy = (type) => (dispatch) => {
   switch (type) {
-    case 'Card':
+    case 'card':
       dispatch(viewByCard);
       break;
-    case 'Classic':
+    case 'classic':
       dispatch(viewByClassic);
       break;
-    case 'Compact':
+    case 'compact':
       dispatch(viewByCompact);
       break;
     default:
