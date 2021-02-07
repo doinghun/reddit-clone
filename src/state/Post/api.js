@@ -1,4 +1,4 @@
-import axios from 'util/axios';
+import { axios } from 'util/api';
 
 const limit = 25;
 

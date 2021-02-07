@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DetailWrapper, DetailImageWrapper } from './styledComponent';
+import { decoded } from 'util/api';
 
-const decoded = (encoded) => encoded.replace(/&amp;/g, '&');
 const PostContentDetail = ({ title, detail, preview }) =>
   preview && preview.enabled ? (
     <DetailImageWrapper>
