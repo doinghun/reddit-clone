@@ -59,7 +59,7 @@ function PostList({
 
   // Load More Posts
   useEffect(() => {
-    if (page > 1) {
+    if (page > 0) {
       fetchMorePosts(subreddit_name);
     }
   }, [page, fetchMorePosts]);
