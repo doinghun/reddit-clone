@@ -76,7 +76,7 @@ function PostList({
           </Item>
         ))}
       </List>
-      <div ref={setElement}>
+      <div ref={(el) => setElement(el)}>
         <LoadingSpinner />
       </div>
     </div>
