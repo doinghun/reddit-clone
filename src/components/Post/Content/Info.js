@@ -9,7 +9,7 @@ const PostContentInfo = ({ author, created }) => (
   <InfoWrapper>
     <span>Posted by</span>
     <a href={`/${author}`}>{author}</a>
-    <span>{dayjs(created * 1000).fromNow()}</span>
+    <span>{dayjs(created * 1000).toNow()}</span>
   </InfoWrapper>
 );
 

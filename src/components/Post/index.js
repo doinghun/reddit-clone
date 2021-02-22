@@ -33,7 +33,7 @@ const Post = (props) => {
         num_comments={num_comments}
         selftext={selftext}
         score={score}
-        create={created}
+        created={created}
         name={name}
         preview={preview}
       />
