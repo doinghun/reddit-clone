@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Post from 'components/Post';
 import LoadingSpinner from 'components/Spinner';
@@ -7,6 +7,7 @@ import { List, Item } from './styledComponents';
 import { connect } from 'react-redux';
 import { fetchPosts, fetchMorePosts } from 'state/Post/action';
 import { subreddit_name } from 'util/constant';
+import useInfiniteScroll from 'hooks/useInfiniteScroll';
 function PostList({
   fetchPosts,
   fetchMorePosts,
@@ -26,36 +27,7 @@ function PostList({
   }, [posts]);
 
   const [element, setElement] = useState(null);
-  const [page, setPage] = useState(0);
-
-  const handleObserver = useCallback(
-    (entries) => {
-      const target = entries[0];
-      if (target.isIntersecting) {
-        setPage((page) => page + 1);
-      }
-    },
-    [setPage]
-  );
-  const observer = useRef(
-    new IntersectionObserver(handleObserver, { threshold: 1 })
-  );
-
-  // Detect Scroll To End
-  useEffect(() => {
-    const currentElement = element;
-    const currentObserver = observer.current;
-
-    if (currentElement && !isLoading) {
-      currentObserver.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement && !isLoading) {
-        currentObserver.unobserve(currentElement);
-      }
-    };
-  }, [element, isLoading]);
+  const page = useInfiniteScroll(element, isLoading);
 
   // Load More Posts
   useEffect(() => {
