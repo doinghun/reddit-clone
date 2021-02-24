@@ -23,6 +23,7 @@ import {
   DECREASE_SCORE,
 } from 'state/Post/action';
 import { post } from 'state/Post/reducer';
+import { sortUp, sortDown } from 'util/sort';
 
 describe('post reducer', () => {
   let initialState;
@@ -169,14 +170,17 @@ describe('post reducer', () => {
       );
       expect(actual).toEqual({
         ...initialState,
-        posts: [
-          {
-            ...posts[0],
-            local_score: 1,
-            upVoted: true,
-            downVoted: false,
-          },
-        ],
+        posts: sortUp(
+          [
+            {
+              ...posts[0],
+              local_score: 1,
+              upVoted: true,
+              downVoted: false,
+            },
+          ],
+          'id1'
+        ),
       });
     });
     it(`should update with ${DECREASE_SCORE}`, () => {
@@ -189,14 +193,17 @@ describe('post reducer', () => {
       );
       expect(actual).toEqual({
         ...initialState,
-        posts: [
-          {
-            ...posts[0],
-            local_score: -1,
-            upVoted: false,
-            downVoted: true,
-          },
-        ],
+        posts: sortDown(
+          [
+            {
+              ...posts[0],
+              local_score: -1,
+              upVoted: false,
+              downVoted: true,
+            },
+          ],
+          'id1'
+        ),
       });
     });
   });

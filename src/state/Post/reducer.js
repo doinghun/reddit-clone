@@ -11,7 +11,7 @@ import {
   INCREASE_SCORE,
   DECREASE_SCORE,
 } from './action';
-import { compare } from 'util/sort';
+import { sortUp, sortDown } from 'util/sort';
 
 const initialState = {
   isInitialLoading: false,
@@ -55,8 +55,8 @@ export const post = (state = initialState, action) => {
     case INCREASE_SCORE:
       return {
         ...state,
-        posts: state.posts
-          .map((post) => {
+        posts: sortUp(
+          state.posts.map((post) => {
             return post.id === action.id
               ? {
                   ...post,
@@ -65,14 +65,15 @@ export const post = (state = initialState, action) => {
                   downVoted: false,
                 }
               : post;
-          })
-          .sort(compare),
+          }),
+          action.id
+        ),
       };
     case DECREASE_SCORE:
       return {
         ...state,
-        posts: state.posts
-          .map((post) => {
+        posts: sortDown(
+          state.posts.map((post) => {
             return post.id === action.id
               ? {
                   ...post,
@@ -81,8 +82,9 @@ export const post = (state = initialState, action) => {
                   upVoted: false,
                 }
               : post;
-          })
-          .sort(compare),
+          }),
+          action.id
+        ),
       };
     default:
       return state;
