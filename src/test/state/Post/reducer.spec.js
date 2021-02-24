@@ -44,7 +44,7 @@ describe('post reducer', () => {
         selftext: 'selftext1',
         id: 'id1',
         score: 1,
-        created: 1612587616,
+        created_utc: 1612587616,
         name: 'name',
         preview: 'preview',
         local_score: 0,

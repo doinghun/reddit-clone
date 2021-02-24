@@ -94,7 +94,7 @@ PostList.propTypes = {
       num_comments: PropTypes.number,
       selftext: PropTypes.string,
       score: PropTypes.number,
-      created: PropTypes.number,
+      created_utc: PropTypes.number,
       name: PropTypes.string,
       preview: PropTypes.object,
       local_score: PropTypes.number,

@@ -28,7 +28,7 @@ describe('PostList', () => {
         selftext: 'selftext1',
         id: 'ldh5fc',
         score: 1,
-        created: 1612587616,
+        created_utc: 1612587616,
         name: 'name',
         preview: {
           enabled: true,

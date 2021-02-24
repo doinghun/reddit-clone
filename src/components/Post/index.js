@@ -12,7 +12,7 @@ const Post = (props) => {
     num_comments,
     selftext,
     score,
-    created,
+    created_utc,
     name,
     preview,
     local_score,
@@ -33,7 +33,7 @@ const Post = (props) => {
         num_comments={num_comments}
         selftext={selftext}
         score={score}
-        created={created}
+        created={created_utc}
         name={name}
         preview={preview}
       />
@@ -48,7 +48,7 @@ Post.propTypes = {
   num_comments: PropTypes.number,
   selftext: PropTypes.string,
   score: PropTypes.number,
-  created: PropTypes.number,
+  created_utc: PropTypes.number,
   name: PropTypes.string,
   preview: PropTypes.object,
   local_score: PropTypes.number,
